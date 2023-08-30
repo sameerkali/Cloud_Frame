@@ -13,7 +13,7 @@ export default function UploadButton() {
         onUpload={(result: uploadResult) => {
           setTimeout(() => {
             router.refresh();
-          }, 1000);
+          }, 0);
         }}
         uploadPreset="zovpgikx"
       >
