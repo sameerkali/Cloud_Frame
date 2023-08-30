@@ -42,8 +42,7 @@ export function CloudinaryImage(
             className="absolute top-2 left-2 hover:text-red-600 cursor-pointer "
           />}
 
-          {/* imageMetu */}
-          <ImageMenu/>
+          <ImageMenu image={_imagedata}/>
     </div>
   );
 }
