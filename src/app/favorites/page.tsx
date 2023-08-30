@@ -1,4 +1,4 @@
-import { CloudinaryImage } from "../gallery/cloudinary-image";
+import { CloudinaryImage } from "../../components/cloudinary-image";
 import cloudinary from "cloudinary";
 import { SearchResults } from "../gallery/page";
 import { ForceRefresh } from "@/components/ui/force-refresh";
@@ -19,6 +19,7 @@ export default async function FavoritesPage() {
         <div className="flex justify-between">
           <h1 className="text-4xl font-bold"> Favorite Images</h1>
         </div>
+        
         <FavoritesList initialResources={results.resources} />
       </div>
     </section>
