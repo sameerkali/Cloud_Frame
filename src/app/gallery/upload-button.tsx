@@ -6,20 +6,19 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 export default function UploadButton() {
-    const router = useRouter();
+  const router = useRouter();
   return (
-      <Button asChild>
-
-
-          <CldUploadButton
-            onUpload={(result: uploadResult) => {
-                setTimeout(()=>{
-                    router.refresh()
-                }, 1000)}}
-            uploadPreset="zovpgikx"
-          >
-                <div className="flex gap-2 items-center">
-             <svg
+    <Button asChild>
+      <CldUploadButton
+        onUpload={(result: uploadResult) => {
+          setTimeout(() => {
+            router.refresh();
+          }, 1000);
+        }}
+        uploadPreset="zovpgikx"
+      >
+        <div className="flex gap-2 items-center">
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
@@ -34,10 +33,8 @@ export default function UploadButton() {
             />
           </svg>
           Upload
-         </div>
-
-            </CldUploadButton>
-        </Button>
-    
+        </div>
+      </CldUploadButton>
+    </Button>
   );
 }

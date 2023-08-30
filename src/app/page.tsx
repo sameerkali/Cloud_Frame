@@ -24,7 +24,6 @@ export default function Home() {
         <CldImage
           width="400"
           height="300"
-          blurFaces
           src={imageId}
           sizes="100vw"
           alt="Description of my image"
