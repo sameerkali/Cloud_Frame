@@ -1,7 +1,8 @@
 import { CloudinaryImage } from "./cloudinary-image";
 import UploadButton from "./upload-button";
 import cloudinary from "cloudinary";
- export type SearchResults = {
+
+export type SearchResults = {
   public_id: string;
   tags: string[];
 };

@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { SearchResult } from "../gallery/page";
-import { ImageGrid } from "@/components/image-grid";
-import { CloudinaryImage } from "@/components/cloudinary-image";
+import { CloudinaryImage } from "../gallery/cloudinary-image";
+import { SearchResults } from "../gallery/page";
 
 export default function FavoritesList({
   initialResources,
 }: {
-  initialResources: SearchResult[];
+  initialResources: SearchResults[];
 }) {
   const [resources, setResources] = useState(initialResources);
 
@@ -17,27 +16,23 @@ export default function FavoritesList({
   }, [initialResources]);
 
   return (
-    <ImageGrid
-      images={resources}
-      getImage={(imageData: SearchResult) => {
-        return (
-          <CloudinaryImage
-            key={imageData.public_id}
-            imageData={imageData}
-            width="400"
-            height="300"
-            alt="an image of something"
-            onUnheart={(unheartedResource) => {
-              setResources((currentResources) =>
-                currentResources.filter(
-                  (resource) =>
-                    resource.public_id !== unheartedResource.public_id
-                )
-              );
-            }}
-          />
-        );
-      }}
-    />
+    <div className="grid grid-cols-4 gap-4">
+      {resources.map((result) => (
+        <CloudinaryImage
+          key={result.public_id}
+          _imagedata={result}
+          width="400"
+          height="300"
+          alt="an image of something"
+          onUnheart={(unheartedResource) => {
+            setResources((currentResources) =>
+              currentResources.filter(
+                (resource) => resource.public_id !== unheartedResource.public_id
+              )
+            );
+          }}
+        />
+      ))}
+    </div>
   );
 }

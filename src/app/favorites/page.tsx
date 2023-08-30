@@ -26,11 +26,11 @@
 //   );
 // }
 
-
 import { CloudinaryImage } from "../gallery/cloudinary-image";
 import cloudinary from "cloudinary";
 import { SearchResults } from "../gallery/page";
 import { ForceRefresh } from "@/components/ui/force-refresh";
+import FavoritesList from "./favorites-list";
 
 export default async function FavoritesPage() {
   const results = (await cloudinary.v2.search
@@ -42,24 +42,12 @@ export default async function FavoritesPage() {
 
   return (
     <section>
-      <ForceRefresh/>
+      <ForceRefresh />
       <div className="flex flex-col gap-8">
         <div className="flex justify-between">
           <h1 className="text-4xl font-bold"> Favorite Images</h1>
         </div>
-        <div className="grid grid-cols-4 gap-4">
-          {results.resources.map(result =>
-            <CloudinaryImage
-            path="/favorite"
-              width="400"
-              height="300"
-              key={result.public_id}
-              _imagedata={result}
-              src={result.public_id}
-              alt="image description"
-            />
-          )}
-        </div>
+        <FavoritesList initialResources={results.resources} />
       </div>
     </section>
   );
