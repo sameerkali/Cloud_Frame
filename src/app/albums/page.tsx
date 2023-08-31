@@ -1,5 +1,6 @@
 import cloudinary from "cloudinary";
 import { AlbumCard } from "./album-card";
+import { Footer } from "@/components/footer";
 
 export type Folder = { name: string; path: string };
 
@@ -9,6 +10,7 @@ export default async function AlbumsPage() {
   };
 
   return (
+    <>
     <section>
       <div className="flex flex-col gap-8">
         <div className="flex justify-between">
@@ -18,9 +20,11 @@ export default async function AlbumsPage() {
         <div className="grid grid-cols-3 gap-4">
           {folders.map(folder =>
             <AlbumCard key={folder.path} folder={folder} />
-          )}
+            )}
         </div>
       </div>
     </section>
+    <Footer/>
+            </>
   );
 }

@@ -1,4 +1,5 @@
 "use client";
+import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -25,6 +26,7 @@ export default function EditPage({
   const [prompt, setPrompt] = useState("");
 
   return (
+    <>
     <section>
       <div className="flex flex-col gap-8">
         <div className="flex justify-between">
@@ -120,5 +122,7 @@ export default function EditPage({
         </div>
       </div>
     </section>
+    <Footer/>
+    </>
   );
 }
