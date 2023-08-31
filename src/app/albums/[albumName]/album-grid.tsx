@@ -2,13 +2,13 @@
 
 import { ImageGrid } from "@/components/image-grid";
 import { CloudinaryImage } from "@/components/cloudinary-image";
-import { SearchResults } from "@/app/gallery/page";
+import { SearchResult } from "@/app/gallery/page";
 
-export default function AlbumGrid({ images }: { images: SearchResults[] }) {
+export default function AlbumGrid({ images }: { images: SearchResult[] }) {
   return (
     <ImageGrid
       images={images}
-      getImage={(imageData: SearchResults) => {
+      getImage={(imageData: SearchResult) => {
         return (
           <CloudinaryImage
             key={imageData.public_id}

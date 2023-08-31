@@ -1,6 +1,6 @@
 import { CloudinaryImage } from "../../components/cloudinary-image";
 import cloudinary from "cloudinary";
-import { SearchResults } from "../gallery/page";
+import { SearchResult } from "../gallery/page";
 import { ForceRefresh } from "@/components/ui/force-refresh";
 import FavoritesList from "./favorites-list";
 import { Footer } from "@/components/footer";
@@ -11,7 +11,7 @@ export default async function FavoritesPage() {
     .sort_by("created_at", "desc")
     .with_field("tags")
     .max_results(200)
-    .execute()) as { resources: SearchResults[] };
+    .execute()) as { resources: SearchResult[] };
 
   return (
     <>

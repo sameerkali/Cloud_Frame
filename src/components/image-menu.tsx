@@ -8,11 +8,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "./icons/menu";
 import AddToAlbumDialog from "./add-to-album";
-import { SearchResults } from "@/app/gallery/page";
+import { SearchResult } from "@/app/gallery/page";
 import { useState } from "react";
 import Link from "next/link";
 
-export function ImageMenu({ image }: { image: SearchResults }) {
+export function ImageMenu({ image }: { image: SearchResult }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="absolute top-2 right-2">

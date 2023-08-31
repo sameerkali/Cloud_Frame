@@ -1,9 +1,9 @@
 "use client"
-import { SearchResults } from "@/app/gallery/page";
+import { SearchResult } from "@/app/gallery/page";
 import { ReactNode } from "react";
 
-export function ImageGrid({ images, getImage }: { images: SearchResults[],
-getImage: (image: SearchResults) => ReactNode,
+export function ImageGrid({ images, getImage }: { images: SearchResult[],
+getImage: (image: SearchResult) => ReactNode,
 }) {
   //grid
   const MAX_COLUMNS = 4;

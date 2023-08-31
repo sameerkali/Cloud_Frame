@@ -4,14 +4,14 @@ import { Heart } from "@/components/icons/heart";
 import { CldImage, CldImageProps } from "next-cloudinary";
 import { setAsFavoriteAction } from "../app/gallery/actions";
 import { useState, useTransition } from "react";
-import { SearchResults } from "../app/gallery/page";
+import { SearchResult } from "../app/gallery/page";
 import { FullHeart } from "@/components/icons/FullHeart";
 import { ImageMenu } from "./image-menu";
 
 export function CloudinaryImage(
   props:{
-    _imagedata: SearchResults;
-    onUnheart?: (unheartedResource: SearchResults) => void;
+    _imagedata: SearchResult;
+    onUnheart?: (unheartedResource: SearchResult) => void;
   }& Omit<CldImageProps, 'src'>) {
   const [transition, startTransition] = useTransition();
   const { _imagedata, onUnheart } = props;

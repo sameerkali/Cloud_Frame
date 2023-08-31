@@ -12,14 +12,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FolderPlus } from "@/components/icons/folder-plus";
 import { useState } from "react";
-import { SearchResults } from "@/app/gallery/page";
+import { SearchResult } from "@/app/gallery/page";
 import { addImageToAlbum } from "./actions";
 
 export function AddToAlbumDialog({
   image,
   onClose
 }: {
-  image: SearchResults;
+  image: SearchResult;
   onClose: () => void;
 }) {
   const [albumName, setAlbumName] = useState("");

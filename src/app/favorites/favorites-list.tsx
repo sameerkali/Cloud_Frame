@@ -2,13 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { CloudinaryImage } from "../../components/cloudinary-image";
-import { SearchResults } from "../gallery/page";
+import { SearchResult } from "../gallery/page";
 import { ImageGrid } from "@/components/image-grid";
 
 export default function FavoritesList({
   initialResources,
 }: {
-  initialResources: SearchResults[];
+  initialResources: SearchResult[];
 }) {
   const [resources, setResources] = useState(initialResources);
 
@@ -18,7 +18,7 @@ export default function FavoritesList({
 
   return (
     <ImageGrid images={resources} 
-    getImage={(_imagedata: SearchResults) => {
+    getImage={(_imagedata: SearchResult) => {
       return (
         <CloudinaryImage
           key={_imagedata.public_id}

@@ -1,6 +1,6 @@
 import cloudinary from "cloudinary";
 import AlbumGrid from "./album-grid";
-import { SearchResults } from "@/app/gallery/page";
+import { SearchResult } from "@/app/gallery/page";
 import { ForceRefresh } from "@/components/ui/force-refresh";
 
 export default async function GalleryPage({
@@ -15,7 +15,7 @@ export default async function GalleryPage({
     .sort_by("created_at", "desc")
     .with_field("tags")
     .max_results(30)
-    .execute()) as { resources: SearchResults[] };
+    .execute()) as { resources: SearchResult[] };
 
   return (
     <section>
