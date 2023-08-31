@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FolderPlus } from "./icons/folder-plus";
+import { FolderPlus } from "@/components/icons/folder-plus";
 import { useState } from "react";
 import { SearchResults } from "@/app/gallery/page";
 import { addImageToAlbum } from "./actions";
@@ -26,7 +26,10 @@ export function AddToAlbumDialog({
   const [open, setOpen] = useState(false);
 
 
-  
+  function convertSpacesToUnderscores(str: string): string {
+    return str.replace(/ /g, "_");
+  }
+
   return (
     <Dialog open={open} onOpenChange={(newOpenState) => {
       setOpen(newOpenState);
@@ -36,7 +39,7 @@ export function AddToAlbumDialog({
     }}>
       <DialogTrigger asChild>
         <Button className="flex gap-2"  variant="ghost">
-          <FolderPlus className="mr-2 h-4 w-4" />
+          <FolderPlus />
           <span>Add to Album</span>
         </Button>
       </DialogTrigger>
@@ -55,7 +58,7 @@ export function AddToAlbumDialog({
             <Input
               onChange={e => setAlbumName(e.currentTarget.value)}
               id="album-name"
-              value={albumName}
+              value={convertSpacesToUnderscores(albumName)}
               className="col-span-3"
             />
           </div>
@@ -65,7 +68,7 @@ export function AddToAlbumDialog({
             onClick={async () => {
               onClose();
               setOpen(false);
-              await addImageToAlbum(image, albumName);
+              await addImageToAlbum(image, convertSpacesToUnderscores(albumName));
             }}
             type="submit"
           >

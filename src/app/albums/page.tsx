@@ -16,9 +16,9 @@ export default async function AlbumsPage() {
         </div>
 
         <div className="grid grid-cols-3 gap-4">
-          {folders.map((folder) => (
+          {folders.map(folder =>
             <AlbumCard key={folder.path} folder={folder} />
-          ))}
+          )}
         </div>
       </div>
     </section>
